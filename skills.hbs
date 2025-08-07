@@ -1,0 +1,98 @@
+{{!--  Date: 7/26/25 --}}
+{{!--  Adapted From --}}
+{{!-- https://handlebarsjs.com/guide/builtin-helpers.html --}}
+{{!-- Used for #each to iterate over a list of items and dynamically render them --}}
+
+{{!--  Date: 7/26/25 --}}
+{{!--  Adapted From --}}
+{{!-- https://uk.indeed.com/career-advice/career-development/what-are-skills --}}
+{{!-- Skills Category list and examples --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='/skill.css'>
+    <script type="text/javascript" src="validation.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Job Tracker</h1>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/">Login</a>
+            <a href="applications.html">Applications</a>
+            <a href="profile.html">Profile</a>
+            <a href="contacts.html">Contacts</a>
+            <a href="/skills">Skills</a>
+        </nav>
+    </header>
+    
+        <h2>Add a skill</h2>
+        <form action="/skills" method="POST">
+    
+    <div class="skills-form">
+    <label>Type</label>
+    <input type="text" name="type" placeholder="Name of Skill"/>
+  
+<label>Skill Level</label>
+<select name="level">
+    <option value="Beginner">Beginner</option>
+    <option value="Intermediate">Intermediate</option>
+    <option value="Advanced">Advanced</option>
+</select>
+
+<label>Category</label>
+<select name="category">
+    <option value="Life">Life </option>
+    <option value="Technical">Technical </option>
+    <option value="Leadership">Leadership </option>
+    <option value="Organizational">Organizational </option>
+    <option value="Other">Other</option>
+</select>
+
+    <button type="submit">Add Another</button>
+</form>
+<div class="description-box">
+  <h3>Skill Categories Explained</h3>
+  <p><strong>Life:</strong> Life skills include abilities to how you deal with daily situations and the environment. Such as personal finance or humour. </p>
+  <p><strong>Technical:</strong> Technical skills include abilities to perform certain tasks. Such as programming or bookkeeping.</p>
+  <p><strong>Leadership:</strong> Leadership include abilities that are usually associated with soft skills. Such as communication or decision making.</p>
+  <p><strong>Organizational:</strong> Organizational include abilities that are another category of soft skills. Such as planning or analysis.</p>
+  <p><strong>Other:</strong> Use this for any skill that are not part of the four categories.</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name of Skill</th><th>Level</th><th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each skills}}
+      <tr>
+        <td>{{this.type}}</td>
+        <td>{{this.level}}</td>
+        <td>{{this.category}}</td>
+      </tr>
+    {{else}}
+      <tr><td>No skills added yet.</td></tr>
+    {{/each}}
+  </tbody>
+</table>
+        </div>
+    <main>
+        <section>
+            
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Stephan Gonzales, Richard Le, Kevin Tang.</p>
+    </footer>
+
+
+</body>
+</html>
